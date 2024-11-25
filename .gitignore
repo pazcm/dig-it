@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# macOS files
+.DS_Store
+
+# VS workspace settings
+/dig-it.code-workspace
