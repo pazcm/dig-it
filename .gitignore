@@ -1,0 +1,5 @@
+# macOS files
+.DS_Store
+
+# VS workspace settings
+/dig-it.code-workspace
