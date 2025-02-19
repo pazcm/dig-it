@@ -1,3 +1,5 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap"); */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +13,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: url(/noise.png),
+  radial-gradient(circle at top center,
+  #4b296980,#563277 25%,#4a378c 40%,#4066a8 65%,#32517380);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -18,6 +28,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -46,12 +57,28 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+main {
+  padding: 1rem 0;
+}
+
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+img {
+  width: 25%;
 }
 
 @media (prefers-color-scheme: light) {
