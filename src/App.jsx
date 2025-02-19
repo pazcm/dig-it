@@ -1,49 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-// import reactImg from './assets/react-core-concepst.png'
 import { CORE_CONCEPTS } from './data.js'
+import Intro from './components/Intro/Intro.jsx'
+import CoreConcept from './components/CoreConcept.jsx'
 
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
-
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Intro() {
-  const description = reactDescriptions[genRandomInt(2)];
-
-  return (
-    <section>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <p>Here is where my playground starts!</p>
-      <p>
-        {description} React Concepts I will need for almost any app I am
-        going to build
-      </p>
-    </section>
-  );
-}
-
-// destructuring the object
-function CoreConcept({image, title, description}) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  )
-}
 
 function App() {
   const [count, setCount] = useState(0)
