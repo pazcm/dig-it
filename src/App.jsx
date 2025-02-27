@@ -3,6 +3,8 @@ import './App.css'
 import { CORE_CONCEPTS } from './data.js'
 import Intro from './components/Intro/Intro.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
+import TabButton from './components/TabButton.jsx'
+
 
 
 function App() {
@@ -38,6 +40,16 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
           </section>
+          <section id="examples">
+            <h2>Examples</h2>
+              <menu>
+                <TabButton>Components</TabButton>
+                <TabButton>JSX</TabButton>
+                <TabButton>Props</TabButton>
+                <TabButton>State</TabButton>
+              </menu>
+          </section>
+         
       </main>
     </>
   )
