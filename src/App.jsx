@@ -19,6 +19,23 @@ function App() {
 
   console.log('Marta & React Components')
 
+  // rendering content conditionally
+  let tabContent = <p>Please select a topic</p>
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+               <code>
+                  {EXAMPLES[selectedTopic].code}
+                </code>
+              </pre>
+        </div>
+      )
+    }
+
   return (
     <>
       <Intro />
@@ -58,8 +75,9 @@ function App() {
                 <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
               </menu>
 
-              {!selectedTopic ? <p>Please select a topic</p> : null} 
-              {selectedTopic ? (
+              {/* other apprach using '&&' in two segments, instead ternary expression */}
+              {/* {!selectedTopic && <p>Please select a topic</p>}
+              {selectedTopic && (
                 <div id="tab-content">
                 <h3>{EXAMPLES[selectedTopic].title}</h3>
                 <p>{EXAMPLES[selectedTopic].description}</p>
@@ -69,18 +87,11 @@ function App() {
                   </code>
                 </pre>
               </div>
-              ) : null}
+              )} */}
 
-              {/* or use this shorter apporach -> if we have a selected topic:
-              {!selectedTopic ? <p>Please select a topic</p> : <div id="tab-content">
-                <h3>{EXAMPLES[selectedTopic].title}</h3>
-                <p>{EXAMPLES[selectedTopic].description}</p>
-                <pre>
-                  <code>
-                    {EXAMPLES[selectedTopic].code}
-                  </code>
-                </pre>
-              </div>} */}
+{/* or use a variable with a conditional check - see ^ if statement  */}
+              {tabContent}
+
           </section>
       </main>
     </>
