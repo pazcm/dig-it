@@ -4,15 +4,17 @@ import { CORE_CONCEPTS } from './data.js'
 import Intro from './components/Intro/Intro.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
 import TabButton from './components/TabButton.jsx'
-
-
+import { EXAMPLES } from './data.js'
 
 function App() {
+  const [ selectedTopic, setSelectedTopic ] = useState(); //if we have a selected topic**
+
   const [count, setCount] = useState(0)
 
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'jsx', 'props' 'state'
-    console.log(selectedButton)
+    setSelectedTopic(selectedButton)
+    console.log(selectedTopic)
   }
 
   console.log('Marta & React Components')
@@ -55,7 +57,30 @@ function App() {
                 <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
                 <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
               </menu>
-              output Dynamic Content here
+
+              {!selectedTopic ? <p>Please select a topic</p> : null} 
+              {selectedTopic ? (
+                <div id="tab-content">
+                <h3>{EXAMPLES[selectedTopic].title}</h3>
+                <p>{EXAMPLES[selectedTopic].description}</p>
+                <pre>
+                  <code>
+                    {EXAMPLES[selectedTopic].code}
+                  </code>
+                </pre>
+              </div>
+              ) : null}
+
+              {/* or use this shorter apporach -> if we have a selected topic:
+              {!selectedTopic ? <p>Please select a topic</p> : <div id="tab-content">
+                <h3>{EXAMPLES[selectedTopic].title}</h3>
+                <p>{EXAMPLES[selectedTopic].description}</p>
+                <pre>
+                  <code>
+                    {EXAMPLES[selectedTopic].code}
+                  </code>
+                </pre>
+              </div>} */}
           </section>
       </main>
     </>
