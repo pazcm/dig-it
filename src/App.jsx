@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { CORE_CONCEPTS } from './data.js'
 import Intro from './components/Intro/Intro.jsx'
+import Header from './components/Header/Header.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
 import TabButton from './components/TabButton.jsx'
 import { EXAMPLES } from './data.js'
@@ -50,7 +51,7 @@ function App() {
           Click on the Vite and React logos to go to the Docs
         </p>
       </div>
-      
+      <Header />
       <main>
           <section id="core-concepts">
           <h2>Core Concepts</h2>
