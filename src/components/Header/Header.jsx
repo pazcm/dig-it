@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <section class="Header">
-      <div class="atom-react">
+      <div class="Header-stylized-atom">
         <img src={reactImg} alt="Stylized atom" />
       </div>
       <p class="Header-adjectives">

@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -69,16 +69,6 @@ button:focus-visible {
 
 main {
   padding: 1rem 0;
-}
-
-
-ul {
-  display: flex;
-  list-style: none;
-}
-
-img {
-  width: 25%;
 }
 
 @media (prefers-color-scheme: light) {
