@@ -8,7 +8,7 @@ import TabButton from './components/TabButton.jsx'
 import { EXAMPLES } from './data.js'
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState(); //if we have a selected topic**
+  const [ selectedTopic, setSelectedTopic ] = useState();
 
   const [count, setCount] = useState(0)
 
@@ -20,7 +20,6 @@ function App() {
 
   console.log('Marta & React Components')
 
-  // rendering content conditionally
   let tabContent = <p>Please select a topic</p>
 
   if (selectedTopic) {
@@ -56,22 +55,7 @@ function App() {
           <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-          {/* transforming the array of objects _in data.js_ into an array of JSX elements using map method */}
-            {/* this function will be executed by react for every item in that array */}
             {CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title} {...conceptItem} />)}
-            {/* When dynamically outputting a list of elements, every element should receive a unique "key" 
-            to help React tell the list items apart */}
-
-            {/* These items are now dynamically generated ^^ thanks to map method that output the list
-            __so I could now modify the objects file _data.js_ and get the output expected automatically__
-            <CoreConcept 
-            title={CORE_CONCEPTS[0].title}
-            description={CORE_CONCEPTS[0].description}
-            image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} /> */}
           </ul>
           </section>
           <section id="examples">
@@ -98,22 +82,6 @@ function App() {
                   State
                 </TabButton>
               </menu>
-
-              {/* other apprach using '&&' in two segments, instead ternary expression */}
-              {/* {!selectedTopic && <p>Please select a topic</p>}
-              {selectedTopic && (
-                <div id="tab-content">
-                <h3>{EXAMPLES[selectedTopic].title}</h3>
-                <p>{EXAMPLES[selectedTopic].description}</p>
-                <pre>
-                  <code>
-                    {EXAMPLES[selectedTopic].code}
-                  </code>
-                </pre>
-              </div>
-              )} */}
-
-{/* or use a variable with a conditional check - see ^ if statement  */}
               {tabContent}
 
           </section>
