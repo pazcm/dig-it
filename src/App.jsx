@@ -57,7 +57,9 @@ function App() {
           <ul>
           {/* transforming the array of objects _in data.js_ into an array of JSX elements using map method */}
             {/* this function will be executed by react for every item in that array */}
-            {CORE_CONCEPTS.map((conceptItem) => <CoreConcept {...conceptItem} />)}
+            {CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title} {...conceptItem} />)}
+            {/* When dynamically outputting a list of elements, every element should receive a unique "key" 
+            to help React tell the list items apart */}
 
             {/* These items are now dynamically generated ^^ thanks to map method that output the list
             __so I could now modify the objects file _data.js_ and get the output expected automatically__
