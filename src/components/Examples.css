@@ -57,3 +57,7 @@
 #tab-content code {
   font-size: 1rem;
 }
+
+.tabContent-text {
+  padding: 3rem;
+}
