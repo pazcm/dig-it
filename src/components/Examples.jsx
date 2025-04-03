@@ -3,6 +3,7 @@ import './Examples.css'
 import { EXAMPLES } from '../data.js'
 import TabButton from './TabButton.jsx'
 import Section from './Section.jsx'
+import Tabs from './Tabs.jsx'
 
 
 export default function Examples() {
@@ -31,9 +32,10 @@ export default function Examples() {
     }   
   return (
     <Section title="Examples" id="examples">
-      <menu>
-        <TabButton isSelected={selectedTopic === 'components'} 
-          onClick={() => handleSelect('components')}
+      <Tabs buttons={
+      <>
+        <TabButton isSelected={selectedTopic === 'components'}
+        onClick={() => handleSelect('components')}
         >
           Components
         </TabButton>
@@ -42,17 +44,20 @@ export default function Examples() {
         >
           JSX
         </TabButton>
-        <TabButton isSelected={selectedTopic === 'props'} 
+        <TabButton isSelected={selectedTopic === 'props'}
         onClick={() => handleSelect('props')}
         >
           Props
         </TabButton>
-        <TabButton isSelected={selectedTopic === 'state'} 
+        <TabButton isSelected={selectedTopic === 'state'}
         onClick={() => handleSelect('state')}
         >
           State
         </TabButton>
-      </menu>
+      </>
+      }>  
+      </Tabs>
+
       {tabContent}
 
   </Section>
