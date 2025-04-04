@@ -1,22 +1,21 @@
 import './App.css'
-import { useState } from 'react'
+
 import { CORE_CONCEPTS } from './data.js'
 import Intro from './components/Intro/Intro.jsx'
 import Header from './components/Header/Header.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
 import Examples from './components/Examples.jsx'
+import Button from './components/Button.jsx'
+import ReactIcon from './components/ReactIcon.jsx'
 
 function App() {
-
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Intro />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Click {count}
-        </button>
+        <Button mode="filled"></Button>
+        {/* <Button Icon={ReactIcon}></Button> */}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
