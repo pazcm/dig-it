@@ -1,20 +1,21 @@
-import { useState } from 'react'
 import './App.css'
+
 import { CORE_CONCEPTS } from './data.js'
 import Intro from './components/Intro/Intro.jsx'
+import Header from './components/Header/Header.jsx'
 import CoreConcept from './components/CoreConcept.jsx'
-
+import Examples from './components/Examples.jsx'
+import Button from './components/Button.jsx'
+import ReactIcon from './components/ReactIcon.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Intro />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Click {count}
-        </button>
+        <Button mode="filled"></Button>
+        {/* <Button Icon={ReactIcon}></Button> */}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -22,22 +23,15 @@ function App() {
           Click on the Vite and React logos to go to the Docs
         </p>
       </div>
-      
+      <Header />
       <main>
           <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept 
-            title={CORE_CONCEPTS[0].title}
-            description={CORE_CONCEPTS[0].description}
-            image={CORE_CONCEPTS[0].image}
-            />
-           {/* here I will use the shorter syntax: */}
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title} {...conceptItem} />)}
           </ul>
           </section>
+          <Examples />
       </main>
     </>
   )
