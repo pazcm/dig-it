@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import './Modal.css';
  
 function Modal({ open, children, onClose }) {
   const dialog = useRef();
@@ -15,7 +16,17 @@ function Modal({ open, children, onClose }) {
   // The modal is rendered using a portal to a DOM node with the ID 'modal'.
   // ESC key handling is managed by the native dialog element.
   return createPortal(
-    <dialog className="modal" ref={dialog} onClose={onClose}>
+    <dialog className="modal" ref={dialog} onClose={onClose}
+    onClick={(e) => {
+    const dialogNode = dialog.current;
+    const rect = dialogNode.getBoundingClientRect();
+    const isOutside =
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom;
+    if (isOutside) onClose();
+    }}>
       {children}
     </dialog>,
     document.getElementById('modal')

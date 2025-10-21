@@ -1,0 +1,15 @@
+dialog.modal {
+  border: none;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+}
+
+dialog::backdrop {
+  background: #ea00ff38
+}
