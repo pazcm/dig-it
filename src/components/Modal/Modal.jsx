@@ -9,14 +9,16 @@ function Modal({ open, children, onClose }) {
     if (open) {
       dialog.current.showModal();
     } else {
-      dialog.current.close();
-    }
+      // dialog.current.close();
+      // adding a small timeout to allow the closing animation to play
+      setTimeout(() => dialog .current.close(), 200);
+    } 
   }, [open]);
  
   // The modal is rendered using a portal to a DOM node with the ID 'modal'.
   // ESC key handling is managed by the native dialog element.
   return createPortal(
-    <dialog className="modal" ref={dialog} onClose={onClose}
+    <dialog className={`modal ${open ? "fade-in" : "fade-out"}`} ref={dialog} onClose={onClose}
     onClick={(e) => {
     const dialogNode = dialog.current;
     const rect = dialogNode.getBoundingClientRect();

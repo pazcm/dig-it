@@ -8,8 +8,32 @@ dialog.modal {
   text-align: center;
   max-width: 300px;
   width: 90%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(-40px);
 }
 
 dialog::backdrop {
-  background: #ea00ff38
+  background: #ea00ff38;
+  opacity: 0;
+  transition: opacity 2.2s ease;
+}
+
+/* -- Estados -- */
+dialog.modal.fade-in {
+  opacity: 1;
+  transform: translateY(40px);
+}
+
+dialog.modal.fade-in::backdrop {
+  opacity: 1;
+}
+
+dialog.modal.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+dialog.modal.fade-out::backdrop {
+  opacity: 0;
 }
